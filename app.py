@@ -18,3 +18,5 @@ if st.button("Predict"):
     input_df = pd.DataFrame([input_data])
     prediction = model.predict(input_df)[0]
     st.success(f"Predicted Final Grade: {prediction:.2f}")
+
+## Code ends here
