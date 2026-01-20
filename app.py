@@ -34,3 +34,17 @@ if st.button("Predict Final Grade"):
     prediction = model.predict(input_df)[0]
 
     st.success(f"Predicted Final Grade: {prediction:.2f}")
+
+st.subheader("Feature Importance")
+
+importances = model.feature_importances_
+importance_df = pd.DataFrame({
+    "Feature": features,
+    "Importance": importances
+})
+
+importance_df = importance_df.sort_values(by="Importance", ascending=False).head(10)
+
+st.bar_chart(
+    importance_df.set_index("Feature")
+)
